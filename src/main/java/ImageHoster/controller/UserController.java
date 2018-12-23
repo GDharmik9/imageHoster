@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 
@@ -30,10 +31,16 @@ public class UserController {
     //Adds User type object to a model and returns 'users/registration.html' file
     @RequestMapping("users/registration")
     public String registration(Model model) {
-        User user = new User();
-        UserProfile profile = new UserProfile();
-        user.setProfile(profile);
-        model.addAttribute("User", user);
+
+
+           /* String error = "Password must contain atleast 1 alphabet, 1 number & 1 special character";
+            model.addAttribute("passwordTypeError", error);*/
+
+            User user = new User();
+            UserProfile profile = new UserProfile();
+            user.setProfile(profile);
+            model.addAttribute("User", user);
+
         return "users/registration";
     }
 

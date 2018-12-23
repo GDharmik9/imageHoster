@@ -1,6 +1,7 @@
 package ImageHoster.model;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class User {
     private String username;
 
     @Column(name = "password")
+    /*@MapKey(name = "passwordTypeError")
+    @Pattern(regexp = "\"^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$\"")*/
     private String password;
 
     //The 'users' table is mapped to 'user_profile' table with One:One mapping
