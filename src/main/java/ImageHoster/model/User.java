@@ -1,7 +1,6 @@
 package ImageHoster.model;
 
 import javax.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +23,6 @@ public class User {
     private String username;
 
     @Column(name = "password")
-    /*@MapKey(name = "passwordTypeError")
-    @Pattern(regexp = "\"^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$\"")*/
     private String password;
 
     //The 'users' table is mapped to 'user_profile' table with One:One mapping
@@ -43,6 +40,9 @@ public class User {
     //FetchType is LAZY
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Image> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user",  cascade = CascadeType.REMOVE, fetch = FetchType.LAZY  )
+    private List<Comment> comments = new ArrayList<>();
 
     public Integer getId() {
         return id;
